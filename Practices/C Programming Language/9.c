@@ -18,13 +18,16 @@ int main(void)
 void copy(char *dst, char *src, unsigned int n)
 {
     while (n--)
-        *dst++ = *src++;
+        (*dst++) = (*src++);
 }
 
 int len(char *src)
 {
     int i = 0;
-    while (*src!='\0')
+    while (*src!='\0'){
         i++;
+        *src++;
+    }
+
     return i;
 }
