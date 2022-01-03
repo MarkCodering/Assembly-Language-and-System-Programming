@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-unsigned int Count1Bits(unsigned int num);
+unsigned int Count1Bits(unsigned int value);
 
 int main(void)
 {
@@ -13,20 +13,16 @@ int main(void)
     return 0;
 }
 
-unsigned int Count1Bits(unsigned int num)
+unsigned int Count1Bits(unsigned int value)
 {
-    int Counter = 0;
-    int op;
-    for (int i = 0; i < 32; i++)
-    {
-        op = num % 2;
-        num = num / 2;
-        if (op == 1)
-        {
-            Counter++;
-        }else{
-            Counter = Counter;
-        }
+    int i = 0;
+    int count = 0;
+    unsigned int mask = 1;
+
+    for (i=0; i<32;++i){
+        if(value&mask) count++;
+        mask <<= 1;
     }
-    return Counter;
+
+    return count;
 }
