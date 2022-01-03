@@ -14,21 +14,23 @@ int main(void)
 }
 
 int ZeroCount(int *x, int n, int *pos_count, int *neg_count)
-{ 
+{
     int count = 0;
+    printf("P: %d", *pos_count);
+    printf("N: %d", *neg_count);
     for (int i = 0; i < n; i++)
     {
         if (x[i] == 0)
         {
             count++;
-        }
+        }0
         else if (x[i] > 0)
         {
             (*pos_count)++;
         }
         else if(x[i] < 0)
         {
-            (*neg_count)++;
+            *(neg_count)++;
         }
     }
     return count;

@@ -15,7 +15,7 @@ int main(void){
 unsigned int Count1Bits(unsigned int num){
    __asm__(
        ".Start_"
-       "MOV r1, #0 @Move r1 with number 0"
-       ""
+       "LDR r0  @Move r1 with number 0"
+       "SUB R0, 2"
    );
 }
