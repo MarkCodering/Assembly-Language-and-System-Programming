@@ -22,4 +22,8 @@ int Sum(int *x, int n)
         sum += x[i];
     }
     return sum;
+
+    /*
+
+    */
 }

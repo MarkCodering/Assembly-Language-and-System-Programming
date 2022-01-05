@@ -1,34 +1,25 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int _Min(int a, int b, int c);
+int Positive(int *x, int n);
 
 int main(void)
 {
-    int n1, n2, n3, min;
-    n1 = -2;      
-    n2 = 0x1023;  
-    n3 = 100;
-    min = _Min(n1, n2, n3);
-    printf("The minimum of x,y, and z is %d\n", min);
-
+    int n = 6;
+    int Pos;
+    int Start[] = {100, -101, 0x2120, 0, 0xE605, 4};
+    Pos = Positive(Start, n);
+    printf("Pos = %d\n", Pos);
     return 0;
-
 }
 
-int _Min(int x, int y, int z)
+int Positive(int *x, int n)
 {
-    int min;
-    if (x < y)
+    int ans = 0;
+    for(int i=0; i<5; i++)
     {
-        min = x;
+        if(x[i] >= 0)
+            ans++;
     }
-    else 
-    {
-        min = y;
-    }
-    if (z < min)
-    {
-        min = z;
-    }
-    return min;
+
+    return ans;
 }

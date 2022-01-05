@@ -9,36 +9,30 @@
         .eabi_attribute 30, 2
         .eabi_attribute 34, 1
         .eabi_attribute 18, 4
-        .file   "6.c"
+        .file   "10.c"
         .text
         .align  2
-        .global Positive
+        .global sum
         .arch armv6
         .syntax unified
         .arm
         .fpu vfp
-        .type   Positive, %function
-Positive:
+        .type   sum, %function
+sum:
         @ args = 0, pretend = 0, frame = 0
         @ frame_needed = 0, uses_anonymous_args = 0
         @ link register save eliminated.
-        ldr     r3, [r0]
+        cmp     r0, #1
+        bxeq    lr
+        mov     r3, #0
+.L2:
         mov     r2, r0
-        ldr     r1, [r0, #4]
-        mvn     r0, r3
-        ldr     r3, [r2, #8]
-        lsr     r0, r0, #31
-        cmp     r1, #0
-        addge   r0, r0, #1
-        cmp     r3, #0
-        ldr     r3, [r2, #12]
-        addge   r0, r0, #1
-        cmp     r3, #0
-        ldr     r3, [r2, #16]
-        addge   r0, r0, #1
-        cmp     r3, #0
-        addge   r0, r0, #1
+        sub     r0, r0, #1
+        cmp     r0, #1
+        add     r3, r3, r2
+        bne     .L2
+        add     r0, r3, #1
         bx      lr
-        .size   Positive, .-Positive
+        .size   sum, .-sum
         .ident  "GCC: (Raspbian 10.2.1-6+rpi1) 10.2.1 20210110"
         .section        .note.GNU-stack,"",%progbits

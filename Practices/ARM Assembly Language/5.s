@@ -2,8 +2,8 @@ MAX:
         @ args = 0, pretend = 0, frame = 0
         @ frame_needed = 0, uses_anonymous_args = 0
         @ link register save eliminated.
-        cmp     r1, #0
-        beq     .L7
+        cmp     r1, #0  
+        beq     .L7  
         ldr     r3, [r0]
         mov     r0, #0
         cmp     r3, r0
